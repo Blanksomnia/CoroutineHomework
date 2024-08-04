@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93e20e92c76fc14bb640c7ce425e761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  Score: 0
 --- !u!54 &949197885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 1729871101}
   - component: {fileID: 1729871100}
   - component: {fileID: 1729871099}
+  - component: {fileID: 1729871104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -916,6 +917,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729871104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729871097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d4e2e41c9d92940bec1f98b8ff97d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _start: {x: -10, y: 0, z: 0}
+  _end: {x: 10, y: 0, z: 0}
+  _speed: 10
+  _delay: 0
 --- !u!1 &1911662750
 GameObject:
   m_ObjectHideFlags: 0
