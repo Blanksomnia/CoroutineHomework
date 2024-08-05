@@ -12,36 +12,35 @@ public class Mover : MonoBehaviour
     [SerializeField]
     private float _speed = 10f;
     [SerializeField]
-    private float _delay = 1f;
-	private IEnumerator Start()
-    {
-        var lenghtDistance = Vector3.Distance(_start, _end);
-		var startTime = Time.time;
-        var Start = _start;
-        var End = _end;
-        while (true)
-		{
-            var distance = (Time.time - startTime) * _speed;
-            var moveTime = distance / lenghtDistance;
-            transform.position = Vector3.Lerp(Start, End, moveTime);
+    private float _delay;
 
-            if(transform.position == _end)
+    private Vector3 End;
+    private Vector3 realPosition;
+    //g
+    private IEnumerator Start()
+    {
+        End = _end;
+        realPosition = transform.position;
+        while (true)
+        { 
+
+            if (transform.position == _end + realPosition)
             {
                 yield return new WaitForSeconds(_delay);
-                startTime = Time.time;
-                Start = _end;
                 End = _start;
-                
+
             }
-            if(transform.position == _start)
+            if (transform.position == _start + realPosition)
             {
                 yield return new WaitForSeconds(_delay);
-                startTime = Time.time;
-                Start = _start;
                 End = _end;
-                
+
             }
             yield return null;
         }
-	}
+    }
+    private void FixedUpdate()
+    {
+        transform.position = Vector3.Lerp(transform.position, End + realPosition, Time.deltaTime * _speed);
+    }
 }
